@@ -20,7 +20,7 @@ public class ConnTest {
 			con.setAutoCommit(false);
 			Statement stmt = con.createStatement();
 			String sql = "insert into song_info(si_num, si_name, si_genre, si_singer, si_creadat)";
-			sql += "values(1, '애국가','KPOP','우리모두','19401201')";
+			sql += "values(2, '애국가','KPOP','우리모두','19401201')";
 			
 			int result = stmt.executeUpdate(sql);
 			System.out.println(result + "개 insert되었음");

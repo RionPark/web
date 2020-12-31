@@ -29,7 +29,20 @@ public class ConnTest2 {
 			con = DriverManager.getConnection(
 							"jdbc:oracle:thin:@localhost:1521/xe","jtest","ezen1234");
 			Statement stmt = con.createStatement();
-			
+			/*
+			 * si_name = 동전한닢
+			 * si_singer = 다듀
+			 * si_genre = 힙합
+			 * si_creadat = 2007-05-31
+			 */
+			String sql = "update song_info";
+			sql += " set si_name='동전한닢',";
+			sql += " si_singer='다듀',";
+			sql += " si_genre='힙합',";
+			sql += " si_creadat='20070531'";
+			System.out.println(sql);
+			int result = stmt.executeUpdate(sql);
+			System.out.println(result + "개 update되었음");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
