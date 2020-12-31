@@ -39,7 +39,8 @@ public class ConnTest2 {
 			sql += " set si_name='동전한닢',";
 			sql += " si_singer='다듀',";
 			sql += " si_genre='힙합',";
-			sql += " si_creadat='20070531'";
+			sql += " si_creadat='20070531'"; 
+			sql += "where si_num=2";
 			System.out.println(sql);
 			int result = stmt.executeUpdate(sql);
 			System.out.println(result + "개 update되었음");
