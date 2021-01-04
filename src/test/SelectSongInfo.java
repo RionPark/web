@@ -6,29 +6,31 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class SelectUserInfo {
+public class SelectSongInfo {
 
 	public static void main(String[] args) {
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		try {
-			Connection con = 
-					DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/xe","jtest","ezen1234");
-			String sql = "select * from user_info";
-			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery(sql);
-			while(rs.next()) {
-				System.out.print(rs.getString("ui_num") + ",");
-				System.out.print(rs.getString("ui_name") + ",");
-				System.out.print(rs.getString("ui_id") + ",");
-				System.out.println(rs.getString("ui_pwd"));
-			}
-		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		try {
+			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/xe","jtest","ezen1234");
+			Statement stmt = con.createStatement();
+			String sql = "select * from song_info";
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()) {
+				String str = rs.getString("si_num") +",";
+				str += rs.getString("si_name") +",";
+				str += rs.getString("si_genre") +",";
+				str += rs.getString("si_singer") +",";
+				str += rs.getString("si_creadat") +"";
+				System.out.println(str);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 	}
 }
